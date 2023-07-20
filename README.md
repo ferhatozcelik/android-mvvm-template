@@ -9,9 +9,9 @@ This app uses [MVVM (Model View View-Model)] architecture.
 ### MVVM (Model View View-Model)
   MVVM stands for "Model-View-ViewModel" and it is an architectural pattern used in Android app development. Here's a brief explanation of each component:
 
-- [Model] - The Model represents the data and business logic of the application. It can include data structures, databases, APIs, or any other data-related logic. The Model should be independent of the user interface and the View.
-- [View] - The View represents the user interface elements of the application. It displays the data from the Model and interacts with the user. In Android, it typically consists of XML layout files and UI components like TextViews, Buttons, RecyclerViews, etc.
-- [ViewModel] - The ViewModel acts as an intermediary between the Model and the View. It is responsible for exposing the data from the Model to the View in a format that the View can easily consume. The ViewModel also contains the presentation logic and handles user interactions. It should not hold references to the View, making it independent of the UI framework.
+- Model: The Model represents the data and business logic of the application. It can include data structures, databases, APIs, or any other data-related logic. The Model should be independent of the user interface and the View.
+- View: The View represents the user interface elements of the application. It displays the data from the Model and interacts with the user. In Android, it typically consists of XML layout files and UI components like TextViews, Buttons, RecyclerViews, etc.
+- ViewModel: The ViewModel acts as an intermediary between the Model and the View. It is responsible for exposing the data from the Model to the View in a format that the View can easily consume. The ViewModel also contains the presentation logic and handles user interactions. It should not hold references to the View, making it independent of the UI framework.
 
 MVVM promotes separation of concerns and makes the code more maintainable, testable, and scalable. It also facilitates data binding, where changes in the ViewModel are automatically reflected in the View and vice versa.
 In Android development, MVVM is often implemented using frameworks like LiveData for data observation and Data Binding for connecting the View and ViewModel.
