@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorSecondary">#599FFE</color>
+    <color name="colorSecondaryVariant">#3A91DD</color>
+    <color name="colorPrimaryVariant">#6D83FF</color>
+    <color name="colorPrimary">#0074D9</color>
+    <color name="colorBorder">#E0E0E0</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="textColor">#686868</color>
+    <color name="buttonColor">#0074D9</color>
+    <color name="speed_icon">#D5CB0D</color>
+    <color name="spin_icon">#FF9900</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#0339DA</color>
+    <color name="green">#00D304</color>
+</resources>
