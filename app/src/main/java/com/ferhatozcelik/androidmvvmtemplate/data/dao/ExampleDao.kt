@@ -7,7 +7,7 @@ import com.ferhatozcelik.androidmvvmtemplate.data.entity.ExampleEntity
 
     @Query("SELECT * FROM example_table")
     fun getExampleData(): List<ExampleEntity>
-/*
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(search: ExampleEntity?)
 
@@ -16,5 +16,5 @@ import com.ferhatozcelik.androidmvvmtemplate.data.entity.ExampleEntity
 
     @Delete
     suspend fun delete(search: ExampleEntity)
-*/
+    
 }
