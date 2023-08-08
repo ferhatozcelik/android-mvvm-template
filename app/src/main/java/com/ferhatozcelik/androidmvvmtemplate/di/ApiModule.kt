@@ -1,6 +1,6 @@
 package com.ferhatozcelik.androidmvvmtemplate.di
 
-import com.ferhatozcelik.androidmvvmtemplate.data.remote.ExampleApi
+import com.ferhatozcelik.androidmvvmtemplate.data.remote.AppApi
 import com.ferhatozcelik.androidmvvmtemplate.util.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -36,8 +36,8 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun provideAppApi(retrofit: Retrofit): ExampleApi {
-        return retrofit.create(ExampleApi::class.java)
+    fun provideAppApi(retrofit: Retrofit): AppApi {
+        return retrofit.create(AppApi::class.java)
     }
 
 }
