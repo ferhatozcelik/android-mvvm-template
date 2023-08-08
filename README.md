@@ -1,8 +1,5 @@
 # Android MVVM Template
 
-![GitHub](https://img.shields.io/github/license/ferhatozcelik/android-mvvm-template)
-![GitHub stars](https://img.shields.io/github/stars/ferhatozcelik/android-mvvm-template?style=social)
-
 This is an Android project template that demonstrates the use of the MVVM (Model-View-ViewModel) architecture along with modern Android architecture components. It provides a structured starting point for building Android applications that are maintainable, testable, and scalable.
 
 ## Project Architecture
