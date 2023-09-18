@@ -7,8 +7,9 @@ import com.ferhatozcelik.androidmvvmtemplate.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
-@AndroidEntryPoint class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(FragmentHomeBinding::inflate) {
-    private val TAG = HomeFragment::class.java.simpleName
+@AndroidEntryPoint class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+    private val TAG = "HomeFragment"
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
