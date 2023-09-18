@@ -1,6 +1,6 @@
 package com.ferhatozcelik.androidmvvmtemplate.di
 
-import com.ferhatozcelik.androidmvvmtemplate.data.remote.AppApi
+import com.ferhatozcelik.androidmvvmtemplate.BuildConfig
 import com.ferhatozcelik.androidmvvmtemplate.util.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -25,7 +25,10 @@ object ApiModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(logging: HttpLoggingInterceptor): OkHttpClient {
-        return OkHttpClient.Builder().addInterceptor(logging).build()
+        return if (BuildConfig.DEBUG) OkHttpClient.Builder()
+            .addInterceptor(logging).build()
+        else OkHttpClient.Builder()
+            .build()
     }
 
     @Provides
@@ -34,10 +37,6 @@ object ApiModule {
         return Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).client(client).build()
     }
 
-    @Provides
-    @Singleton
-    fun provideAppApi(retrofit: Retrofit): AppApi {
-        return retrofit.create(AppApi::class.java)
-    }
+
 
 }

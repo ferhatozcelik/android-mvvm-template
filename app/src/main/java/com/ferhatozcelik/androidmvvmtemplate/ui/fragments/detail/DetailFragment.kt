@@ -7,7 +7,7 @@ import com.ferhatozcelik.androidmvvmtemplate.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>(FragmentDetailBinding::inflate) {
+class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
     private val TAG = DetailFragment::class.java.simpleName
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

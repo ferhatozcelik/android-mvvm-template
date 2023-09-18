@@ -12,6 +12,7 @@
         android:layout_centerInParent="true"
         android:layout_margin="8dp"
         android:scaleType="fitCenter"
+        android:contentDescription=""
         android:src="@drawable/app_icon" />
 
     <ProgressBar
