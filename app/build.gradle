@@ -44,9 +44,9 @@ android {
 dependencies {
 
     // Kotlin
-    api(libs.kotlin.stdlib)
-    api(libs.core.ktx)
-    api(libs.appcompat)
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
 
     // Material Design
     implementation(libs.material)
