@@ -21,7 +21,7 @@ fun String.isValidPassword(): Boolean {
 
 fun String.isValidUrl(): Boolean {
     try {
-        val url = URL(this)
+        URL(this)
         return URLUtil.isValidUrl(this) && Patterns.WEB_URL.matcher(this).matches()
     } catch (ignored: MalformedURLException) {
     }
