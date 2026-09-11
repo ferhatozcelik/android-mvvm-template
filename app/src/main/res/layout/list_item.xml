@@ -5,11 +5,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="8dp"
-        app:cardCornerRadius="12dp">
+        app:cardCornerRadius="12dp"
+        app:cardElevation="1dp"
+        app:cardBackgroundColor="?attr/colorSurfaceContainer">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -27,7 +29,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:includeFontPadding="false"
                 android:singleLine="true"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 tools:ignore="SmallSp,UnusedAttribute"
@@ -44,7 +46,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:includeFontPadding="false"
                 android:singleLine="true"
-                android:textColor="@color/textColor"
+                android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 tools:ignore="SmallSp,UnusedAttribute"
@@ -52,6 +54,6 @@
 
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

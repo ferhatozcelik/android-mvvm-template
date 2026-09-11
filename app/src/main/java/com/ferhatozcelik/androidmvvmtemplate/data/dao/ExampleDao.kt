@@ -6,10 +6,10 @@ import com.ferhatozcelik.androidmvvmtemplate.data.entity.ExampleEntity
 @Dao interface ExampleDao {
 
     @Query("SELECT * FROM example_table")
-    fun getExampleData(): List<ExampleEntity>
+    suspend fun getExampleData(): List<ExampleEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(search: ExampleEntity?)
+    suspend fun insert(search: ExampleEntity)
 
     @Update
     suspend fun update(search: ExampleEntity)

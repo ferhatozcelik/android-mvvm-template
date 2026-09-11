@@ -1,4 +1,4 @@
-package com.wiseria.common.domain.session
+package com.ferhatozcelik.androidmvvmtemplate.common.domain.session
 
 import com.ferhatozcelik.androidmvvmtemplate.common.data.preferences.Preferences
 import javax.inject.Inject

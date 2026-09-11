@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.graphics.drawable.ColorDrawable
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
@@ -42,18 +43,13 @@ class ProgressDialog(var activity: Activity) {
 
     fun cancelDialog(delayClose: Boolean = false) {
         if (delayClose) {
-            Handler().postDelayed({
-                if (alertDialog != null) {
-                    alertDialog.cancel()
-                    process = false
-                }
-            }, 600)
-        } else {
-            if (alertDialog != null) {
+            Handler(Looper.getMainLooper()).postDelayed({
                 alertDialog.cancel()
                 process = false
-            }
-
+            }, 600)
+        } else {
+            alertDialog.cancel()
+            process = false
         }
     }
 

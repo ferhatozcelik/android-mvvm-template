@@ -1,6 +1,5 @@
 package com.ferhatozcelik.androidmvvmtemplate.ui.base
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,10 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseActivity<VB : ViewBinding>(private val bindingFactory: (LayoutInflater) -> VB) : AppCompatActivity() {
-    private val TAG = "BaseActivity"
 
     protected lateinit var binding: VB
-    protected lateinit var sharedPref: SharedPreferences
+        private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +18,7 @@ abstract class BaseActivity<VB : ViewBinding>(private val bindingFactory: (Layou
         setContentView(binding.root)
     }
 
-
-
+    companion object {
+        private const val TAG = "BaseActivity"
+    }
 }

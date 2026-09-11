@@ -1,4 +1,4 @@
-package com.wiseria.common.domain.session
+package com.ferhatozcelik.androidmvvmtemplate.common.domain.session
 
 interface SessionManager {
 
@@ -21,5 +21,4 @@ interface SessionManager {
     fun logOut()
 
     fun saveTokens(accessToken: String, refreshToken: String)
-
 }

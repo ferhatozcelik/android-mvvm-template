@@ -7,7 +7,7 @@ class PreferenceManager @Inject constructor(
     context: Context
 ) : SharedPreferences(context), Preferences {
 
-    override fun getPrefName() = "WiseriaPrefs"
+    override fun getPrefName() = "AndroidMvvmTemplatePrefs"
 
     override fun getAccessToken() = preferences.getString(PreferencesConstants.KEY_ACCESS_TOKEN, "")
 

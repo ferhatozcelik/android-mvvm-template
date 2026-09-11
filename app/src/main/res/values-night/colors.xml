@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material 3 color scheme (dark) -->
+    <color name="colorPrimary">#9FCAFF</color>
+    <color name="colorOnPrimary">#003258</color>
+    <color name="colorPrimaryContainer">#00497D</color>
+    <color name="colorOnPrimaryContainer">#D1E4FF</color>
+
+    <color name="colorSecondary">#BBC7DB</color>
+    <color name="colorOnSecondary">#253140</color>
+    <color name="colorSecondaryContainer">#3B4858</color>
+    <color name="colorOnSecondaryContainer">#D7E3F7</color>
+
+    <color name="colorTertiary">#D6BEE4</color>
+    <color name="colorOnTertiary">#3B2948</color>
+    <color name="colorTertiaryContainer">#523F5F</color>
+    <color name="colorOnTertiaryContainer">#F2DAFF</color>
+
+    <color name="colorError">#FFB4AB</color>
+    <color name="colorOnError">#690005</color>
+    <color name="colorErrorContainer">#93000A</color>
+    <color name="colorOnErrorContainer">#FFDAD6</color>
+
+    <color name="colorBackground">#1A1C1E</color>
+    <color name="colorOnBackground">#E2E2E6</color>
+    <color name="colorSurface">#1A1C1E</color>
+    <color name="colorOnSurface">#E2E2E6</color>
+    <color name="colorSurfaceVariant">#43474E</color>
+    <color name="colorOnSurfaceVariant">#C3C7CF</color>
+    <color name="colorSurfaceContainer">#26282A</color>
+    <color name="colorOutline">#8D9199</color>
+
+    <!-- Legacy / decorative colors kept for existing UI usages -->
+    <color name="colorBorder">#3A3D40</color>
+    <color name="textColor">#C3C7CF</color>
+    <color name="buttonColor">#9FCAFF</color>
+</resources>

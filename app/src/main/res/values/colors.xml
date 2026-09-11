@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorSecondary">#599FFE</color>
-    <color name="colorSecondaryVariant">#3A91DD</color>
-    <color name="colorPrimaryVariant">#6D83FF</color>
-    <color name="colorPrimary">#0074D9</color>
-    <color name="colorBorder">#E0E0E0</color>
-
+    <!-- Base brand colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Material 3 color scheme (light) -->
+    <color name="colorPrimary">#0061A4</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorPrimaryContainer">#D1E4FF</color>
+    <color name="colorOnPrimaryContainer">#001D36</color>
+
+    <color name="colorSecondary">#535F70</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorSecondaryContainer">#D7E3F7</color>
+    <color name="colorOnSecondaryContainer">#101C2B</color>
+
+    <color name="colorTertiary">#6B5778</color>
+    <color name="colorOnTertiary">#FFFFFF</color>
+    <color name="colorTertiaryContainer">#F2DAFF</color>
+    <color name="colorOnTertiaryContainer">#251431</color>
+
+    <color name="colorError">#BA1A1A</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorErrorContainer">#FFDAD6</color>
+    <color name="colorOnErrorContainer">#410002</color>
+
+    <color name="colorBackground">#FDFCFF</color>
+    <color name="colorOnBackground">#1A1C1E</color>
+    <color name="colorSurface">#FDFCFF</color>
+    <color name="colorOnSurface">#1A1C1E</color>
+    <color name="colorSurfaceVariant">#DFE2EB</color>
+    <color name="colorOnSurfaceVariant">#43474E</color>
+    <color name="colorSurfaceContainer">#EEF0F4</color>
+    <color name="colorOutline">#73777F</color>
+
+    <!-- Legacy / decorative colors kept for existing UI usages -->
+    <color name="colorBorder">#E0E0E0</color>
     <color name="textColor">#686868</color>
-    <color name="buttonColor">#0074D9</color>
+    <color name="buttonColor">#0061A4</color>
     <color name="speed_icon">#D5CB0D</color>
     <color name="spin_icon">#FF9900</color>
     <color name="red">#FF0000</color>

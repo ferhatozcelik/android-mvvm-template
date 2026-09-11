@@ -1,19 +1,30 @@
 plugins {
+    // Kotlin support is provided by AGP's built-in Kotlin (since AGP 9.0), so the
+    // `org.jetbrains.kotlin.android` plugin is intentionally NOT applied here.
+    // See https://kotl.in/gradle/agp-built-in-kotlin
     alias(libs.plugins.com.android.application)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.androidx.navigation.safeargs)
     alias(libs.plugins.com.google.dagger.hilt.android)
     alias(libs.plugins.com.google.devtools.ksp)
-    id('kotlin-parcelize')
+    alias(libs.plugins.org.jetbrains.kotlin.parcelize)
     // id("com.google.gms.google-services") // Google Play Services
     // id("com.google.firebase.crashlytics") // Google Play Services
 }
 hilt {
     enableAggregatingTask = true
 }
+configurations.configureEach {
+    resolutionStrategy {
+        // Hilt's annotation processor still ships against an older kotlin-metadata-jvm
+        // baseline than Kotlin 2.4.x produces; force the newer artifact so it can parse
+        // Kotlin 2.4.20 metadata. Safe to remove once Hilt bumps this internally.
+        force 'org.jetbrains.kotlin:kotlin-metadata-jvm:2.4.20'
+    }
+}
 android {
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     compileSdk appCompileSdkVersion
     namespace "com.ferhatozcelik.androidmvvmtemplate"
@@ -23,21 +34,18 @@ android {
         targetSdkVersion appTargetSdkVersion
         versionCode 1
         versionName "1.0.0"
-        multiDexEnabled true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
     }
 
 }
@@ -48,20 +56,20 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
 
-    // Material Design
+    // Material Design 3
     implementation(libs.material)
-    implementation libs.androidx.viewpager2
+    implementation(libs.androidx.viewpager2)
 
     // ConstraintLayout
     implementation(libs.constraintlayout)
 
-    // Legacy Support Library
-    implementation(libs.androidx.legacy.support.v4)
+    // Fragment
+    implementation(libs.fragment)
 
-    // Multidex
-    implementation(libs.androidx.multidex)
+    // RecyclerView
+    implementation(libs.recyclerview)
 
-    // DeSugar Use Java 8 language features and APIs
+    // DeSugar Use Java 8+ language features and APIs
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     // Dagger Hilt
@@ -77,7 +85,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
-    // Lifecycle Scopes
+    // Lifecycle (ViewModel + StateFlow support)
     implementation(libs.lifecycle)
     implementation(libs.lifecycle.runtime)
 
@@ -92,11 +100,17 @@ dependencies {
 
     // Glide
     implementation(libs.glide)
-    ksp(libs.ksp)
+    ksp(libs.glide.ksp)
 
     // Firebase
     // implementation(libs.firebase)
     // implementation(libs.analytics)
     // implementation(libs.crashlytics)
+
+    // Testing
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 
 }

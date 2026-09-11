@@ -1,41 +1,31 @@
 package com.ferhatozcelik.androidmvvmtemplate.util
 
-import android.content.ActivityNotFoundException
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
-import android.view.View
 import android.widget.EditText
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
-fun View.show() {
-    visibility = View.VISIBLE
-}
-
-fun View.gone() {
-    visibility = View.GONE
-}
-
-fun Context.toast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-}
-
-fun String.debug(message: String) {
-    Log.d(this, message)
-}
+// General-purpose Context/View/String helpers live in `common.extensions` to avoid
+// duplication - this file only holds coroutine/lifecycle related helpers.
 
 fun EditText.modifyText(numberText: String) {
     this.setText(numberText)
     this.setSelection(numberText.length)
 }
 
-fun Context.goURL(url: String) {
-    try {
-        val myIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        startActivity(myIntent)
-    } catch (e: ActivityNotFoundException) {
-        this.toast("No application can handle this request. Please install a webbrowser")
-        e.printStackTrace()
+/**
+ * Collects [flow] safely, only while the fragment's view is at least in the [STARTED][Lifecycle.State.STARTED]
+ * state, automatically pausing/resuming collection across the fragment's lifecycle. This is the
+ * recommended pattern for observing a ViewModel's `StateFlow`/`SharedFlow` from a Fragment.
+ */
+fun <T> Fragment.collectOnStarted(flow: Flow<T>, action: suspend (T) -> Unit) {
+    viewLifecycleOwner.lifecycleScope.launch {
+        viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+            flow.collectLatest(action)
+        }
     }
 }
